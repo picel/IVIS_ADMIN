@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
+import 'package:ivis_admin/Controller/TokenProcess.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ivis_admin/Controller/LoginProcess.dart';
@@ -35,7 +36,12 @@ class _LoginState extends State<Login> {
     var prefs = SharedPreferences.getInstance();
     prefs.then((value) {
       if (value.getString('token') != null) {
-        Navigator.pushReplacementNamed(context, '/DashBoard');
+        TokenProcess.checkToken().then((value) => {
+              if (value)
+                {
+                  Navigator.pushReplacementNamed(context, '/dashboard'),
+                }
+            });
       }
     });
     isMobile = _checkMobile();
