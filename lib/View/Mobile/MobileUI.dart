@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ivis_admin/View/InfoBoard.dart';
 import 'package:ivis_admin/View/Desktop/DesktopUserList.dart';
 import 'package:ivis_admin/View/Mobile/MobileUserList.dart';
+import 'package:ivis_admin/View/TimeTable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MobileUI extends StatefulWidget {
@@ -75,6 +76,11 @@ class _MobileUIState extends State<MobileUI> {
             activeIcon: Icon(Icons.person),
             label: 'User List',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.schedule_outlined),
+            activeIcon: Icon(Icons.schedule),
+            label: 'Schedule',
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color(0xFF5E76BF),
@@ -100,6 +106,11 @@ class _MobileUIState extends State<MobileUI> {
               width: width,
               height: height - 200,
               child: const MobileUserList(),
+            ),
+            SizedBox(
+              width: width,
+              height: height - 200,
+              child: Schedule(),
             ),
           ][_selectedIndex]
         ],

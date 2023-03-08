@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ivis_admin/View/InfoBoard.dart';
+import 'package:ivis_admin/View/TimeTable.dart';
 import 'package:ivis_admin/Widgets/Indicator.dart';
 import 'package:ivis_admin/View/Desktop/DesktopUserList.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,6 +61,11 @@ class _DesktopUIState extends State<DesktopUI> {
               icon: Icon(Icons.person_outlined),
               selectedIcon: Icon(Icons.person),
               label: Text('User List'),
+            ),
+            NavigationRailDestination(
+              icon: Icon(Icons.schedule_outlined),
+              selectedIcon: Icon(Icons.schedule),
+              label: Text('Schedule'),
             ),
           ],
         ),
@@ -136,6 +142,11 @@ class _DesktopUIState extends State<DesktopUI> {
                     height: height - 200,
                     child:
                         const SingleChildScrollView(child: DesktopUserList()),
+                  ),
+                  SizedBox(
+                    width: width,
+                    height: height - 200,
+                    child: const Schedule(),
                   ),
                 ][_selectedIndex]
               ],

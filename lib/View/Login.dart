@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
         TokenProcess.checkToken().then((value) => {
               if (value)
                 {
-                  Navigator.pushReplacementNamed(context, '/dashboard'),
+                  Navigator.pushReplacementNamed(context, '/DashBoard'),
                 }
             });
       }
